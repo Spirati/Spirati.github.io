@@ -1,0 +1,21 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+
+<span class="hsccontainer">
+    {{ .Inner }}
+    <span class="hsclink">
+        <a href="#top">[top]</a>
+    </span>
+</span>
+
+
+<style>
+.hsclink {
+    opacity: 0;
+    padding-top: 2.5%;
+    padding-right: 2.5%;
+}
+
+.hsccontainer:hover > .hsclink {
+    opacity: 1;
+}
+</style>
