@@ -49,13 +49,15 @@ It should be assumed that the actual bot will be used by typing `e$names`. This 
 
 Commands that take {{<infobox "Information passed to a command">}}arguments{{</infobox>}} will be notated in the following way:
 ```
-e$command-name required-argument [optional-argument]
+e$command-name required-argument [optional-argument] option-1|option-2
 ```
+Required arguments must be included in the command to run successfully, and optional arguments don't have to be included for the bot to handle the command properly, or they may only be required under certain circumstances. The vertical bar (|) indicates choice from a set of options.
+
 For example, `try` takes two sets of arguments, and would be notated in the following way:
 ```
 e$try [pronoun-1/pronoun-2/.../pronoun-m] [name-1, name-2,..., name-n]
 ```
-This indicates that both the pronoun and name arguments are optional (with [some caveats]({{< relref "#try" >}})). Further, an indefinite amount of arguments
+This indicates that both the pronoun and name arguments are optional (with [some caveats]({{< relref "#try" >}})). Further, an indefinite amount of arguments may be specified for each, indicated by the {{<infobox "...">}}ellipsis{{</infobox>}}.
 
 ## {{< totop >}} 1. Modifying user information {{</ totop >}} {#usersettings}
 
@@ -63,9 +65,32 @@ Euphy2 has three different commands that can be used to control the information 
 
 ### {{% totop %}} Setting names: `names` {{%/ totop %}} {#setnames}
 
-`names`
+`names` has the following syntax:
+```
+e$names [name-1, name-2, ...]
+```
+When called with no arguments, Euphy2 will send a list of any names you have set for yourself before:
+
+![e$names with no arguments](/img/euphy2/names_no_args.png)
+
+When called with a comma-separated list (like `name 1, name 2, name 3`), the bot will set the names it has stored for you to all of the names you input:
+
+![e$names with arguments](/img/euphy2/names_with_args.png)
+
+The names you set will be selected from randomly [when using `try`][9].
 
 ### {{% totop %}} Setting pronouns: `pronouns` {{%/ totop %}} {#setpronouns}
+
+`pronouns` works almost identically to `names`:
+```
+e$pronouns [pronoun-1/pronoun-2/pronoun-3/...]
+```
+the only differences being that slashes delineate pronouns (as is common, especially on the Internet), and that of course this modifies what pronouns are stored rather than names. 
+
+You only need provide one pronoun from each set you would like to use (e.g., you only need to input `she/they` instead of `she/her/hers/they/them/theirs`, etc.), __except in the case where you only want to use one set of pronouns__, in which case you will need to provide two. For example, if your pronouns were `he/him/his`, you would need to enter `e$pronouns he/him` or `e$pronouns he/him/his` instead of `e$pronouns he`.
+
+![e$pronouns with arguments](/img/euphy2/pronouns_with_args.png)
+
 ### {{% totop %}} Deleting info: `delete` {{%/ totop %}} {#deletesettings}
 
 ## {{< totop >}} 2. Accessing the pronoun database {{</ totop>}} {#pronoundb}
