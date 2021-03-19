@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>euphy2 on Lynne Cure</title><link>https://lynnux.org/tags/euphy2/</link><description>Lynne Cure (euphy2)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 18 Feb 2021 21:19:15 +0000</lastBuildDate><atom:link href="https://lynnux.org/tags/euphy2/index.xml" rel="self" type="application/rss+xml"/><item><title>Euphy2 Tutorial</title><link>https://lynnux.org/projects/euphy2/</link><pubDate>Thu, 18 Feb 2021 21:19:15 +0000</pubDate><guid>https://lynnux.org/projects/euphy2/</guid><description>&lt;h1 id="top">Table of Contents&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>euphy2 on Lynne Cure</title><link>https://www.lynnux.org/tags/euphy2/</link><description>Lynne Cure (euphy2)</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 18 Feb 2021 21:19:15 +0000</lastBuildDate><atom:link href="https://www.lynnux.org/tags/euphy2/index.xml" rel="self" type="application/rss+xml"/><item><title>Euphy2 Tutorial</title><link>https://www.lynnux.org/projects/euphy2/</link><pubDate>Thu, 18 Feb 2021 21:19:15 +0000</pubDate><guid>https://www.lynnux.org/projects/euphy2/</guid><description>&lt;h1 id="top">Table of Contents&lt;/h1>
 &lt;ol start="0">
 &lt;li>
 &lt;p>&lt;a href="#foreword">Foreword: Style and arguments&lt;/a>&lt;/p>
@@ -128,9 +128,9 @@ opacity: 1;
 &lt;pre>&lt;code>e$names [name-1, name-2, ...]
 &lt;/code>&lt;/pre>
 &lt;p>When called with no arguments, Euphy2 will send a list of any names you have set for yourself before:&lt;/p>
-&lt;p>&lt;img src="https://lynnux.org/img/euphy2/names_no_args.png" alt="e$names with no arguments">&lt;/p>
+&lt;p>&lt;img src="https://www.lynnux.org/img/euphy2/names_no_args.png" alt="e$names with no arguments">&lt;/p>
 &lt;p>When called with a comma-separated list (like &lt;code>name 1, name 2, name 3&lt;/code>), the bot will set the names it has stored for you to all of the names you input:&lt;/p>
-&lt;p>&lt;img src="https://lynnux.org/img/euphy2/names_with_args.png" alt="e$names with arguments">&lt;/p>
+&lt;p>&lt;img src="https://www.lynnux.org/img/euphy2/names_with_args.png" alt="e$names with arguments">&lt;/p>
 &lt;p>The names you set will be selected from randomly &lt;a href="#trynamespronouns">when using &lt;code>try&lt;/code>&lt;/a>.&lt;/p>
 &lt;h3 id="setpronouns">
 &lt;span class="hsccontainer">
@@ -154,7 +154,7 @@ opacity: 1;
 &lt;/code>&lt;/pre>
 &lt;p>the only differences being that slashes delineate pronouns (as is common, especially on the Internet), and that of course this modifies what pronouns are stored rather than names.&lt;/p>
 &lt;p>You only need provide one pronoun from each set you would like to use (e.g., you only need to input &lt;code>she/they&lt;/code> instead of &lt;code>she/her/hers/they/them/theirs&lt;/code>, etc.), &lt;strong>except in the case where you only want to use one set of pronouns&lt;/strong>, in which case you will need to provide two. For example, if your pronouns were &lt;code>he/him/his&lt;/code>, you would need to enter &lt;code>e$pronouns he/him&lt;/code> or &lt;code>e$pronouns he/him/his&lt;/code> instead of &lt;code>e$pronouns he&lt;/code>.&lt;/p>
-&lt;p>&lt;img src="https://lynnux.org/img/euphy2/pronouns_with_args.png" alt="e$pronouns with arguments">&lt;/p>
+&lt;p>&lt;img src="https://www.lynnux.org/img/euphy2/pronouns_with_args.png" alt="e$pronouns with arguments">&lt;/p>
 &lt;h3 id="deletesettings">
 &lt;span class="hsccontainer">
 Deleting info: &lt;code>delete&lt;/code>
@@ -273,6 +273,6 @@ padding-right: 2.5%;
 .hsccontainer:hover > .hsclink {
 opacity: 1;
 }
-&lt;/style>&lt;/h2></description></item><item><title>Project: Euphy2</title><link>https://lynnux.org/post/euphy2/</link><pubDate>Thu, 18 Feb 2021 21:19:15 +0000</pubDate><guid>https://lynnux.org/post/euphy2/</guid><description>&lt;p>Euphy2 is a Discord bot I wrote with &lt;a href="https://github.com/Rapptz/discord.py">discord.py&lt;/a> designed to let users (particularly those in the transgender and nonbinary communities, as well as those questioning) try new names and pronouns quickly and easily.&lt;/p>
+&lt;/style>&lt;/h2></description></item><item><title>Project: Euphy2</title><link>https://www.lynnux.org/post/euphy2/</link><pubDate>Thu, 18 Feb 2021 21:19:15 +0000</pubDate><guid>https://www.lynnux.org/post/euphy2/</guid><description>&lt;p>Euphy2 is a Discord bot I wrote with &lt;a href="https://github.com/Rapptz/discord.py">discord.py&lt;/a> designed to let users (particularly those in the transgender and nonbinary communities, as well as those questioning) try new names and pronouns quickly and easily.&lt;/p>
 &lt;p>It is the direct successor to a more prototypical version of the same concept, &lt;a href="https://github.com/Spirati/EuphoriaBot">EuphoriaBot&lt;/a>, with more optimized code, more focused features, and a cleaner environment for anyone who might wish to contribute.&lt;/p>
-&lt;p>To find out more, head to its &lt;a href="https://lynnux.org/projects/euphy2/">tutorial page&lt;/a> or check out its &lt;a href="https://github.com/Spirati/Euphy2">source code&lt;/a>.&lt;/p></description></item></channel></rss>
+&lt;p>To find out more, head to its &lt;a href="https://www.lynnux.org/projects/euphy2/">tutorial page&lt;/a> or check out its &lt;a href="https://github.com/Spirati/Euphy2">source code&lt;/a>.&lt;/p></description></item></channel></rss>
