@@ -1,7 +1,7 @@
 baseURL = "https://spirati.github.io/"
 title = "Lynne Cure"
 
-theme = "fuji"
+theme = "anubis"
 hasCJKLanguage = true
 enableEmoji = true
 enableRobotsTXT = true
@@ -15,69 +15,26 @@ defaultContentLanguage = "en"  # For HTML page, now support: en, zh-hans, zh-han
 summaryLength = 100 # Custom summary length, add <!--more--> in post file to custom split point
 paginate = 10
 
-# googleAnalytics = "UA-000000000-0" # Set your Google Analytics UA here
-
-[outputFormats]
-  [outputFormats.SearchIndex]
-    isPlainText = true
-    notAlternative = true
-    mediaType = "application/json"
-    path = "/search/"
 
 [outputs]
-  home = ["HTML", "RSS", "SearchIndex"]
+  home = ["HTML", "RSS"]
 
 [permalinks]
   post = "/:section/:filename/" # Custom post links, e.g. "/:year/:month/:title/"
 
 [params]
   author = "Lynne Cure" # You can also set author in post front matter individually
-  subTitle = "Developer of Euphy2 and more"
+  subTitle = "Backend dev with diverse skillset"
 
-  # Source URL of the website, will appear in the footer
-  sourceURL = "https://github.com/Spirati/Spirati.github.io"
+  customCSS = ["css/my.css"]
 
-
-  # Word counter and read time indicator in post metadata
-  showWordCounter = true
-  showReadTime = false
-
-  # License in the footer
-  showLicenseInFooter = false
-
-  # License at the end of each post
-  showLicense = true
-  showToc = true
+  style="light"
 
   # Copyright
   copyrightStartYear = "2021"
 
-  # Open Graph & Twitter Card variables
-  # You can also set description and images in post front matter individually
-  description = "Developer of Euphy2 and more"
-  og = "/img/og.png" # This will use the image called og.png in static/img folder
-
   # Posts shown in homepage
   mainSections = ["post"]
-
-  # Bangumi image chart id
-  # bgmImageChart = "000000"
-
-  # License
-  license = "CC BY-NC-SA 4.0"
-  licenseLink = "http://creativecommons.org/licenses/by-nc-sa/4.0/"
-
-
-  # custom lazyload placeholder
-  # 16:9
-  lazyPlaceholder = "/assets/lazyload/dsrca_loading_480x270.svg"
-  # 32:9
-  lazyPlaceholderRow = "/assets/lazyload/dsrca_loading_960x270.svg"
-  # 8:9
-  lazyPlaceholderCol = "/assets/lazyload/dsrca_loading_480x540.svg"
-
-  # Let images display in full brightness under dark mode
-  disableDarkImage = true
 
 [markup]
   [markup.goldmark]
@@ -94,28 +51,24 @@ paginate = 10
   tag = "tags"
 
 [menu]
-  [[menu.nav]]
+  [[menu.main]]
     name = "Home"
     url = "/"
     weight = 1
-  [[menu.nav]]
+  [[menu.main]]
     name = "About"
     url = "/about/"
     weight = 3
-  [[menu.nav]]
-    name = "Search"
-    url = "/search/"
-    weight = 4
 
-  [[menu.link]]
+  [[menu.footer]]
     name = "GitHub"
     url = "https://github.com/Spirati"
     weight = 1
-  [[menu.link]]
+  [[menu.footer]]
     name = "Twitter"
     url = "https://twitter.com/_lynnux"
     weight = 2
-  [[menu.link]]
+  [[menu.footer]]
     name = "Discord Profile"
     url = "http://discord.com/users/365506149619073025"
     weight = 3
