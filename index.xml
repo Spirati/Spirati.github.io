@@ -1,1 +1,278 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lynne Cure</title><link>https://spirati.github.io/</link><description>Recent content on Lynne Cure</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 18 Feb 2021 21:19:15 +0000</lastBuildDate><atom:link href="https://spirati.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>About Me</title><link>https://spirati.github.io/about/</link><pubDate>Thu, 18 Feb 2021 21:19:15 +0000</pubDate><guid>https://spirati.github.io/about/</guid><description>Hey there! More info to come. Adding a sentence.</description></item><item><title>Euphy2 Tutorial</title><link>https://spirati.github.io/projects/euphy2/</link><pubDate>Thu, 18 Feb 2021 21:19:15 +0000</pubDate><guid>https://spirati.github.io/projects/euphy2/</guid><description/></item><item><title>Project: Euphy2</title><link>https://spirati.github.io/post/euphy2/</link><pubDate>Thu, 18 Feb 2021 21:19:15 +0000</pubDate><guid>https://spirati.github.io/post/euphy2/</guid><description>&lt;p>Euphy2 is a Discord bot I wrote with &lt;a href="https://github.com/Rapptz/discord.py" target="_blank">discord.py&lt;/a> designed to let users (particularly those in the transgender and nonbinary communities, as well as those questioning) try new names and pronouns quickly and easily.&lt;/p></description></item><item><title>Workshop: Writing a Discord Bot</title><link>https://spirati.github.io/post/dbworkshop/</link><pubDate>Thu, 01 Jan 1970 00:33:41 +0000</pubDate><guid>https://spirati.github.io/post/dbworkshop/</guid><description>&lt;p>The following is a workshop I wrote for Virtual CodeDay Spring 2021 designed to give more or less absolute beginners experience in writing their own Discord bots. I&amp;rsquo;m putting it up here for posterity but also to provide it to anyone who wasn&amp;rsquo;t able to attend the event.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lynne Cure</title><link>https://spirati.github.io/</link><description>Lynne Cure</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 18 Feb 2021 21:19:15 +0000</lastBuildDate><atom:link href="https://spirati.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Euphy2 Tutorial</title><link>https://spirati.github.io/projects/euphy2/</link><pubDate>Thu, 18 Feb 2021 21:19:15 +0000</pubDate><guid>https://spirati.github.io/projects/euphy2/</guid><description>&lt;h1 id="top">Table of Contents&lt;/h1>
+&lt;ol start="0">
+&lt;li>
+&lt;p>&lt;a href="#foreword">Foreword: Style and arguments&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="#usersettings">Modifying user information&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="#setnames">Setting names: &lt;code>names&lt;/code>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#setpronouns">Setting pronouns: &lt;code>pronouns&lt;/code>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#deletesettings">Deleting info: &lt;code>delete&lt;/code>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="#pronoundb">Accessing the pronoun database&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="#contribute">Contributing new pronoun sets: &lt;code>contribute&lt;/code>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#query">Querying database&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="#trynamespronouns">Trying names and pronouns: &lt;code>try&lt;/code>&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="#specifynamespronouns">Specifying names and pronouns manually&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="#miscellaneous">Miscellaneous&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;h3 id="note">Note&lt;/h3>
+&lt;p>Any text that has a dotted line under it like &lt;span title="Hey there!" class="infobox">this&lt;/span>
+&lt;style>
+.infobox {
+position: relative;
+text-decoration-line: underline;
+text-decoration-style: dotted;
+text-underline-offset: 2px;
+cursor: help;
+}
+&lt;/style> can be hovered over for further explanation. This is useful for technical terms that would be familiar to people from a technology background, but would require too much explanation in the text to be smooth for new readers. Keep an eye out for any unfamiliar language!&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="foreword">
+&lt;span class="hsccontainer">
+0. Foreword: Style and arguments
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h2>
+&lt;p>In the following tutorial, it is assumed that every command is prefixed by &lt;code>e$&lt;/code>. For example, if a section below were to read:&lt;/p>
+&lt;blockquote>
+&lt;p>Users may use &lt;code>names&lt;/code> to modify their stored names.&lt;/p>
+&lt;/blockquote>
+&lt;p>It should be assumed that the actual bot will be used by typing &lt;code>e$names&lt;/code>. This is done for ease of reading in the tutorial.&lt;/p>
+&lt;p>Commands that take &lt;span title="Information passed to a command" class="infobox">arguments&lt;/span>
+&lt;style>
+.infobox {
+position: relative;
+text-decoration-line: underline;
+text-decoration-style: dotted;
+text-underline-offset: 2px;
+cursor: help;
+}
+&lt;/style> will be notated in the following way:&lt;/p>
+&lt;pre>&lt;code>e$command-name required-argument [optional-argument] option-1|option-2
+&lt;/code>&lt;/pre>
+&lt;p>Required arguments must be included in the command to run successfully, and optional arguments don&amp;rsquo;t have to be included for the bot to handle the command properly, or they may only be required under certain circumstances. The vertical bar (|) indicates choice from a set of options.&lt;/p>
+&lt;p>For example, &lt;code>try&lt;/code> takes two sets of arguments, and would be notated in the following way:&lt;/p>
+&lt;pre>&lt;code>e$try [pronoun-1/pronoun-2/.../pronoun-m] [name-1, name-2,..., name-n]
+&lt;/code>&lt;/pre>
+&lt;p>This indicates that both the pronoun and name arguments are optional (with &lt;a href="#try">some caveats&lt;/a>). Further, an indefinite amount of arguments may be specified for each, indicated by the &lt;span title="..." class="infobox">ellipsis&lt;/span>
+&lt;style>
+.infobox {
+position: relative;
+text-decoration-line: underline;
+text-decoration-style: dotted;
+text-underline-offset: 2px;
+cursor: help;
+}
+&lt;/style>.&lt;/p>
+&lt;h2 id="usersettings">
+&lt;span class="hsccontainer">
+1. Modifying user information
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h2>
+&lt;p>Euphy2 has three different commands that can be used to control the information Euphy2 has on a user. These are &lt;code>names&lt;/code>, &lt;code>pronouns&lt;/code>, and &lt;code>delete&lt;/code>.&lt;/p>
+&lt;h3 id="setnames">
+&lt;span class="hsccontainer">
+Setting names: &lt;code>names&lt;/code>
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h3>
+&lt;p>&lt;code>names&lt;/code> has the following syntax:&lt;/p>
+&lt;pre>&lt;code>e$names [name-1, name-2, ...]
+&lt;/code>&lt;/pre>
+&lt;p>When called with no arguments, Euphy2 will send a list of any names you have set for yourself before:&lt;/p>
+&lt;p>&lt;img src="https://spirati.github.io/img/euphy2/names_no_args.png" alt="e$names with no arguments">&lt;/p>
+&lt;p>When called with a comma-separated list (like &lt;code>name 1, name 2, name 3&lt;/code>), the bot will set the names it has stored for you to all of the names you input:&lt;/p>
+&lt;p>&lt;img src="https://spirati.github.io/img/euphy2/names_with_args.png" alt="e$names with arguments">&lt;/p>
+&lt;p>The names you set will be selected from randomly &lt;a href="#trynamespronouns">when using &lt;code>try&lt;/code>&lt;/a>.&lt;/p>
+&lt;h3 id="setpronouns">
+&lt;span class="hsccontainer">
+Setting pronouns: &lt;code>pronouns&lt;/code>
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h3>
+&lt;p>&lt;code>pronouns&lt;/code> works almost identically to &lt;code>names&lt;/code>:&lt;/p>
+&lt;pre>&lt;code>e$pronouns [pronoun-1/pronoun-2/pronoun-3/...]
+&lt;/code>&lt;/pre>
+&lt;p>the only differences being that slashes delineate pronouns (as is common, especially on the Internet), and that of course this modifies what pronouns are stored rather than names.&lt;/p>
+&lt;p>You only need provide one pronoun from each set you would like to use (e.g., you only need to input &lt;code>she/they&lt;/code> instead of &lt;code>she/her/hers/they/them/theirs&lt;/code>, etc.), &lt;strong>except in the case where you only want to use one set of pronouns&lt;/strong>, in which case you will need to provide two. For example, if your pronouns were &lt;code>he/him/his&lt;/code>, you would need to enter &lt;code>e$pronouns he/him&lt;/code> or &lt;code>e$pronouns he/him/his&lt;/code> instead of &lt;code>e$pronouns he&lt;/code>.&lt;/p>
+&lt;p>&lt;img src="https://spirati.github.io/img/euphy2/pronouns_with_args.png" alt="e$pronouns with arguments">&lt;/p>
+&lt;h3 id="deletesettings">
+&lt;span class="hsccontainer">
+Deleting info: &lt;code>delete&lt;/code>
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h3>
+&lt;h2 id="pronoundb">
+&lt;span class="hsccontainer">
+2. Accessing the pronoun database
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h2>
+&lt;h3 id="contribute">
+&lt;span class="hsccontainer">
+Contributing new pronoun sets: &lt;code>contribute&lt;/code>
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h3>
+&lt;h3 id="query">
+&lt;span class="hsccontainer">
+Querying database
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h3>
+&lt;h2 id="trynamespronouns">
+&lt;span class="hsccontainer">
+3. Trying names and pronouns
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h2>
+&lt;h3 id="specifynamespronouns">
+&lt;span class="hsccontainer">
+Specifying names and pronouns manually
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h3>
+&lt;h2 id="miscellaneous">
+&lt;span class="hsccontainer">
+4. Miscellaneous
+&lt;span class="hsclink">
+&lt;a href="#top">[top]&lt;/a>
+&lt;/span>
+&lt;/span>
+&lt;style>
+.hsclink {
+opacity: 0;
+padding-top: 2.5%;
+padding-right: 2.5%;
+}
+.hsccontainer:hover > .hsclink {
+opacity: 1;
+}
+&lt;/style>&lt;/h2></description></item><item><title>Project: Euphy2</title><link>https://spirati.github.io/post/euphy2/</link><pubDate>Thu, 18 Feb 2021 21:19:15 +0000</pubDate><guid>https://spirati.github.io/post/euphy2/</guid><description>&lt;p>Euphy2 is a Discord bot I wrote with &lt;a href="https://github.com/Rapptz/discord.py">discord.py&lt;/a> designed to let users (particularly those in the transgender and nonbinary communities, as well as those questioning) try new names and pronouns quickly and easily.&lt;/p>
+&lt;p>It is the direct successor to a more prototypical version of the same concept, &lt;a href="https://github.com/Spirati/EuphoriaBot">EuphoriaBot&lt;/a>, with more optimized code, more focused features, and a cleaner environment for anyone who might wish to contribute.&lt;/p>
+&lt;p>To find out more, head to its &lt;a href="https://spirati.github.io/projects/euphy2/">tutorial page&lt;/a> or check out its &lt;a href="https://github.com/Spirati/Euphy2">source code&lt;/a>.&lt;/p></description></item><item><title>Workshop: Writing a Discord Bot</title><link>https://spirati.github.io/post/dbworkshop/</link><pubDate>Thu, 01 Jan 1970 00:33:41 +0000</pubDate><guid>https://spirati.github.io/post/dbworkshop/</guid><description>&lt;p>The following is a workshop I wrote for Virtual CodeDay Spring 2021 designed to give more or less absolute beginners experience in writing their own Discord bots. I&amp;rsquo;m putting it up here for posterity but also to provide it to anyone who wasn&amp;rsquo;t able to attend the event.&lt;/p></description></item><item><title>About Me</title><link>https://spirati.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://spirati.github.io/about/</guid><description>&lt;p>Hey there! More info to come. Adding a sentence.&lt;/p></description></item></channel></rss>
