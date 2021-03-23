@@ -1,8 +1,8 @@
 +++
 title = "Workshop: Writing a Discord Bot"
-date = 2021
+date = 2021-03-23
 description = "Beginner workshop I wrote for Virtual CodeDay Spring 2021"
-tags = ["python", "discord", "codeday"]
+tags = ["python", "discord", "codeday", "workshop"]
 showToc = false
 +++
 

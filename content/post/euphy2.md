@@ -1,6 +1,6 @@
 +++
 title = "Project: Euphy2"
-date = 2021-02-18T21:19:15.788Z
+date = 2021-02-18
 description = "Project post for Euphy2"
 tags = ["python","discord","lgbtq+","euphy2"]
 showToc = false
