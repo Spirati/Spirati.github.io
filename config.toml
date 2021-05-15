@@ -1,5 +1,5 @@
 baseURL = "https://www.lynnux.org/"
-title = "Lynne Cure"
+title = "Lynnux"
 
 theme = "anubis"
 hasCJKLanguage = true
@@ -23,7 +23,7 @@ paginate = 10
   post = "/:section/:filename/" # Custom post links, e.g. "/:year/:month/:title/"
 
 [params]
-  author = "Lynne Cure" # You can also set author in post front matter individually
+  author = "Lynnux" # You can also set author in post front matter individually
   subTitle = "Backend dev with diverse skillset"
 
   customCSS = ["css/my.css"]
